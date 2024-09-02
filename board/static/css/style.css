@@ -23,6 +23,30 @@ nav ul li{
     margin: 7px;
 }
 
+header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flash{
+    padding: 20px;
+    margin: 10px;
+    width: 80%;
+    border-radius: 5px;
+}
+
+.flash.error{
+    background-color: #cc342b;
+    color: white;
+}
+
+.flash.success{
+    background-color: #198844;
+    color: white;
+}
+
 main {
     width: 80%;
     margin: 0 auto;
