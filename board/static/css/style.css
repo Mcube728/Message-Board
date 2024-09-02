@@ -83,4 +83,7 @@ form{
     form{
         width: 100%;
     }
+    .not-found-cat{
+        width: 90%;
+    }
 }
