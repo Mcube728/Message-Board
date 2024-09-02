@@ -1,2 +1,3 @@
 # Message-Board
-A Simple anonymous message board. 
+
+A simple anonymous message board.

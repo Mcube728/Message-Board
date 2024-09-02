@@ -1,0 +1,29 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+a,
+a:visited {
+  color: #007bff;
+}
+
+nav ul{
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li{
+    display: inline;
+}
+
+main {
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 15px;
+    border: 1px solid #000;
+}
