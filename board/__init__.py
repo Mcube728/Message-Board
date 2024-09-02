@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 from flask import Flask
 
+
 from board import pages, posts, database, errors
 
 load_dotenv()       # Load Environment Variables
