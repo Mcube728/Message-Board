@@ -6,3 +6,6 @@ env
 
 # Pycache
 __pycache__
+
+# Database
+*.sqlite

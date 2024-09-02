@@ -20,6 +20,7 @@ nav ul{
 
 nav ul li{
     display: inline;
+    margin: 7px;
 }
 
 main {
@@ -28,8 +29,17 @@ main {
     border-radius: 5px;
     border: 1px solid #aaa;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    }
+}
+
+article{
+    margin-bottom: 15px;
+}
+
+article .message{
+    font-size: 22px;
+}
 
 form{
     width: 80%;
@@ -49,6 +59,15 @@ form{
     width: 100%;
     padding: 5px;
     border: 1px solid #aaa;
+    border-radius: 5px;
+}
+
+.submit-btn{
+    color: white;
+    background-color: #007bff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 /* Media Queries */
@@ -56,7 +75,11 @@ form{
     main{
         width: 90%;
     }
-    
+
+    article .message{
+        font-size: 18px;
+    }
+
     form{
         width: 100%;
     }
