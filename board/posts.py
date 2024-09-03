@@ -2,6 +2,8 @@ from flask import Blueprint, render_template, redirect, request, url_for, flash,
 from bson.objectid import ObjectId
 from board.database import get_db
 from datetime import datetime
+from datetime import datetime, timezone
+
 
 bp = Blueprint('posts', __name__)
 
@@ -17,7 +19,7 @@ def create():
             post={
                 'author': author,
                 'message': message,
-                'created': datetime.now()
+                'created': datetime.now(timezone.utc)
             }
             posts_collection.insert_one(post)
             current_app.logger.debug(f'New post by {author}')
