@@ -126,6 +126,11 @@ label{
         border-radius: 15px;
     }
 
+    article{
+        width: 100%;
+    }
+
+
     img {
         max-width: 95%;
         height: auto;
