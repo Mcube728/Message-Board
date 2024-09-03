@@ -58,7 +58,16 @@ main {
 }
 
 article{
-    margin-bottom: 15px;
+    width: 70%; 
+    padding: 0px 40px;
+    border: 1px solid #acacac;
+    border-radius: 5px;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+article aside{
+    padding-bottom: 10px;
 }
 
 article .message{
@@ -113,7 +122,7 @@ label{
         background-size: contain;
     }
     article{
-        padding-bottom: 15px;
+        padding-bottom: 25px;
     }
 }
 @media (max-width: 450px) {
