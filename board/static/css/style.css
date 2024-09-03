@@ -54,6 +54,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 article{
@@ -71,7 +72,8 @@ form{
     display: flex;
     flex-direction: column;
     justify-content: center;
-
+    border: 1px solid #acacac;
+    border-radius: 15px;
 }
 
 .form-group{
@@ -95,6 +97,11 @@ form{
 
 .not-found-cat{
     width: 750px;
+}
+
+label{
+    display: block;
+    padding-bottom: 10px;
 }
 
 /* Media Queries */
