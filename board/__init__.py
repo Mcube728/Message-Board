@@ -1,16 +1,19 @@
 import os
 from dotenv import load_dotenv
 from flask import Flask
+from flask_pymongo import PyMongo
 
-
-from board import pages, posts, database, errors
+from board import database, pages, posts, errors
 
 load_dotenv()       # Load Environment Variables
 
 def create_app():
     app = Flask(__name__)
     app.config.from_prefixed_env()
-    app.logger.setLevel('INFO')
+    app.config['MONGO_URI'] = os.getenv('MONGO_URL')
+    app.config['DATABASE'] = 'messages'
+    mongo = PyMongo(app)
+    #app.logger.setLevel('INFO')
 
     database.init_app(app)
 
@@ -19,5 +22,5 @@ def create_app():
     app.register_error_handler(404, errors.page_not_found)
 
     app.logger.debug(f"Current Environment: {os.getenv('ENVIRONMENT')}")
-    app.logger.debug(f"Using Database: {app.config.get('DATABASE')}")
+    app.logger.debug(f"Using Database: {app.config.get('MONGO_URI')}")
     return app

@@ -1,5 +1,7 @@
 from flask import Blueprint, render_template, redirect, request, url_for, flash, current_app
+from bson.objectid import ObjectId
 from board.database import get_db
+from datetime import datetime
 
 bp = Blueprint('posts', __name__)
 
@@ -11,8 +13,13 @@ def create():
 
         if message: 
             db = get_db()
-            db.execute("INSERT INTO post (author, message) VALUES (?, ?)",(author, message),)
-            db.commit()
+            posts_collection = db['posts']
+            post={
+                'author': author,
+                'message': message,
+                'created': datetime.now()
+            }
+            posts_collection.insert_one(post)
             current_app.logger.debug(f'New post by {author}')
             flash(f'Thank you for posting, {author}!', category='success')
             return redirect(url_for('posts.posts'))
@@ -23,7 +30,6 @@ def create():
 @bp.route('/posts')
 def posts():
     db = get_db()
-    posts = db.execute(
-        "SELECT author, message, created FROM post ORDER BY created DESC"
-    ).fetchall()
+    posts_collection = db['posts']
+    posts = posts_collection.find().sort('created', -1)     # -1 is descending order
     return render_template('posts/posts.html', posts=posts)
