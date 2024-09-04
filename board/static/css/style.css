@@ -57,17 +57,22 @@ main {
     align-items: center;
 }
 
+.about {
+    width: 100%;
+    font-size: 18px;
+}
+
 article{
     width: 70%; 
     padding: 0px 40px;
     border: 1px solid #acacac;
     border-radius: 5px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     text-align: left;
 }
 
 article aside{
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
 
 article .message{
@@ -115,6 +120,11 @@ label{
 
 /* Media Queries */
 @media (max-width: 760px){
+    
+    .about{
+        width: 100%;
+    }
+
     form{
         width: 100%;
         padding: 10px;
@@ -129,7 +139,10 @@ label{
     article{
         width: 100%;
     }
-
+    
+    article aside{
+        padding-bottom: 10px;
+    }
 
     img {
         max-width: 95%;
