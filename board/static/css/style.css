@@ -64,7 +64,7 @@ main {
 
 article{
     width: 70%; 
-    padding: 0px 40px;
+    padding: 0 40px;
     border: 1px solid #acacac;
     border-radius: 5px;
     margin-bottom: 20px;
@@ -141,7 +141,8 @@ label{
     }
     
     article aside{
-        padding-bottom: 10px;
+        margin-bottom: 5px;
+        padding-bottom: 0px;
     }
 
     img {
