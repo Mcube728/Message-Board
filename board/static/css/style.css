@@ -140,7 +140,7 @@ footer img {
 @media (max-width: 760px){
     
     .wrapper{
-        min-height: 90vh;
+        min-height: 80vh;
     }
 
     .about{
