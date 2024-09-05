@@ -23,6 +23,12 @@ nav ul li{
     margin: 7px;
 }
 
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 95vh;
+}
+
 header{
     display: flex;
     flex-direction: column;
@@ -119,9 +125,9 @@ label{
 }
 
 footer {
-    position: fixed;
     bottom: 10px;
     width: 100%;
+    margin-top: auto;
 }
 
 footer img {
