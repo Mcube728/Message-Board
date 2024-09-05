@@ -118,6 +118,18 @@ label{
     padding-bottom: 10px;
 }
 
+footer {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+}
+
+footer img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Media Queries */
 @media (max-width: 760px){
     
