@@ -13,7 +13,7 @@ def create():
         author = request.form['author'] or 'Anonymous'
         message = request.form['message']
 
-        if bool(message.strip()): 
+        if bool(message.strip()):   # Check for non empty strings
             db = get_db()
             posts_collection = db['posts']
             post={

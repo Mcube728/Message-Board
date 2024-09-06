@@ -2,13 +2,16 @@ import os
 from dotenv import load_dotenv
 from flask import Flask
 from flask_pymongo import PyMongo
+from flask_moment import Moment
 
 from board import database, pages, posts, errors
 
 load_dotenv()       # Load Environment Variables
+moment = Moment()
 
 def create_app():
     app = Flask(__name__)
+    moment.init_app(app)
     app.config.from_prefixed_env()
     app.config['MONGO_URI'] = os.getenv('MONGO_URL')
     app.config['DATABASE'] = 'messages'
