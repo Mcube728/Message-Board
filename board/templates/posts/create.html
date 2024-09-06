@@ -4,8 +4,8 @@
     <h2>{% block title %}Add Post{% endblock title %}</h2>
 {% endblock header %}
 
-{% block content %} 
-    <form method="post">
+{% block content %}
+    <form method="post" onsubmit="disableButton()">
         <div class="form-group">
             <label for="author">Your Name: </label>
             <input type="text" name="author" value="{{ request.form['author'] }}" class="form-control">
@@ -18,9 +18,18 @@
 
         <div class="form-group">
             <p>Please do not spam the submit button (I HAVE TO PAY FOR HOSTING CHARGES &#x1F62D)</p>
-            <input type="submit" value="Post Message" class="submit-btn" id="myButton" onclick="this.disable=true">
+            <input type="submit" value="Post Message" class="submit-btn" id="myButton">
         </div>
 
         </div>
     </form>
+    <script>
+        function disableButton() {
+            const button = document.getElementById('myButton');
+            button.disabled = true; // Disable the button
+            setTimeout(() => {
+                button.disabled = false; // Re-enable the button after 20 seconds
+            }, 20000); // 20000 milliseconds = 20 seconds
+        }
+    </script>
 {% endblock content %}
