@@ -78,7 +78,15 @@ article{
 }
 
 article aside{
-    padding-bottom: 5px;
+    padding: 15px 0;
+    color: #198844;
+    display: flex;
+    justify-content: space-between;
+    justify-items: right;
+}
+
+article aside i{
+    color: #fba922;
 }
 
 article .message{
@@ -175,7 +183,7 @@ footer img {
         background-size: contain;
     }
     article{
-        padding-bottom: 25px;
+        padding-bottom: 15px;
     }
 }
 @media (max-width: 450px) {
