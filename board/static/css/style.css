@@ -78,19 +78,13 @@ article{
 }
 
 article aside{
-    padding: 15px 0;
-    color: #198844;
-    display: flex;
-    justify-content: space-between;
-    justify-items: right;
+    padding-bottom: 15px;
 }
 
-article aside i{
-    color: #fba922;
-}
 
 article .message{
     font-size: 22px;
+    margin-bottom: 15px 
 }
 
 form{
