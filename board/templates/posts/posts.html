@@ -7,8 +7,9 @@
 {% block content %}
     {% for post in posts %}
         <article>
+            <aside>{{ post["author"] }} &ensp; <i>{{ moment(post["created"]).format('DD/MM/YY (ddd) hh:mmA') }}</i></aside>
             <p class="message"> {{ post["message"] }}</p>
-            <aside>Posted by {{ post["author"] }} on <i>{{ moment(post["created"]).format('DD/MM/YY (ddd) hh:mmA') }}</i></aside>
+            <a href="{{ url_for('posts.reply', post_id=post['_id']) }}" class="reply">Reply</a> &ensp; <a href="{{ url_for('posts.replies', post_id=post['_id']) }}" class="reply">View Replies</a>
         </article>
     {% endfor %}
 {% endblock content %}

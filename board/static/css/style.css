@@ -8,7 +8,7 @@ body {
 }
 
 a,
-a:visited {
+a:visited .navigation{
   color: #007bff;
   text-decoration: none;
 }
@@ -75,16 +75,20 @@ article{
     border-radius: 5px;
     margin-bottom: 20px;
     text-align: left;
+    padding-bottom: 10px;
 }
 
 article aside{
-    padding-bottom: 15px;
+    padding: 15px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+    justify-items: right;
 }
 
 
 article .message{
     font-size: 22px;
-    margin-bottom: 15px 
+    margin: 10px 0px; 
 }
 
 form{
@@ -127,6 +131,14 @@ label{
     padding-bottom: 10px;
 }
 
+.add-reply{
+    padding: 7px;
+    border-radius: 5px;
+    color: white;
+    background-color: #007bff;
+    margin-bottom: 20px; 
+}
+
 footer {
     bottom: 10px;
     width: 100%;
@@ -163,6 +175,7 @@ footer img {
 
     article{
         width: 100%;
+        padding-bottom: 0px;
     }
     
     article aside{

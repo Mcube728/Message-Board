@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h2>{% block title %}Replies to {% endblock title %}</h2>
+{% endblock header %}
+
+{% block content %}
+
+    <article>
+        <aside>{{ post["author"] }} &ensp; <i>{{ moment(post["created"]).format('DD/MM/YY (ddd) hh:mmA') }}</i></aside>
+        <p class="message"> {{ post["message"] }}</p>
+    </article>
+
+    <nav>
+        <ul>
+            <li><a class="add-reply" href="{{ url_for('posts.reply', post_id=post['_id']) }}" class="reply">Add a Reply</a></li>
+            <li><a class="add-reply" href="{{ url_for('posts.posts') }}">Go Back</a></li>
+        </ul>
+    </nav>
+
+    <hr style="width: 100%; margin-bottom: 20px"> 
+
+    {% for reply in replies %}
+        {% if reply['post_id'] == post['_id'] %}
+            <article>
+                <aside>{{ reply["author"] }} &ensp; <i>{{ moment(reply["created"]).format('DD/MM/YY (ddd) hh:mmA') }}</i></aside>
+                <p class="message"> {{ reply["message"] }}</p>
+            </article>
+        {% endif %}
+    {% endfor %}
+{% endblock content %}
