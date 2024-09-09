@@ -33,7 +33,26 @@ def create():
 def posts():
     db = get_db()
     posts_collection = db['posts']
-    posts = posts_collection.find().sort('created', -1)     # -1 is descending order
+    replies_collection = db['replies']
+    pipeline = [
+        {
+            '$lookup': {
+                'from': 'replies',
+                'localField': '_id',
+                'foreignField': 'post_id',  # Assuming replies have a field 'post_id' referring to the post
+                'as': 'replies'
+            }
+        },
+        {
+            '$addFields': {
+                'replyCount': { '$size': '$replies' }
+            }
+        },
+        {
+            '$sort': { 'created': -1 }  # Sort by creation date
+        }
+    ]
+    posts = list(posts_collection.aggregate(pipeline))
     return render_template('posts/posts.html', posts=posts)
 
 @bp.route("/posts/<post_id>/add_reply", methods=('GET', 'POST'))
@@ -65,5 +84,5 @@ def replies(post_id):
     replies_collection = db['replies']
     posts_collection = db['posts']
     post = posts_collection.find_one({"_id": ObjectId(post_id)})
-    replies = replies_collection.find().sort('created', -1)     # -1 is descending order
+    replies = replies_collection.find()     # -1 is descending order
     return render_template('replies/replies.html', replies=replies, post=post)

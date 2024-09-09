@@ -9,7 +9,7 @@
         <article>
             <aside>{{ post["author"] }} &ensp; <i>{{ moment(post["created"]).format('DD/MM/YY (ddd) hh:mmA') }}</i></aside>
             <p class="message"> {{ post["message"] }}</p>
-            <a href="{{ url_for('posts.reply', post_id=post['_id']) }}" class="reply">Reply</a> &ensp; <a href="{{ url_for('posts.replies', post_id=post['_id']) }}" class="reply">View Replies</a>
+            <a href="{{ url_for('posts.reply', post_id=post['_id']) }}" class="reply">Reply</a> &ensp; <a href="{{ url_for('posts.replies', post_id=post['_id']) }}" class="reply">View Replies ({{post['replyCount']}})</a>
         </article>
     {% endfor %}
 {% endblock content %}
